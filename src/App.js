@@ -1,13 +1,43 @@
-import React from 'react';
+import React , {useState} from 'react';
+import Header from './components/Header';
+import MissionProgress from './components/MissionProgress';
+import ActiveMissions from './components/ActiveMissions';
+import WeeklyProgress from './components/WeeklyProgress';
 
 function App() {
-  return (
-    <div className="min-h-screen bg-blue-100 flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-700">
-        Tailwind CSS is working! ✅
-      </h1>
-    </div>
-  );
-}
+  const [darkMode , setDarkMode] = useState(false);
+  const[habits , setHabits] = useState([
+    {id:1 , name:"Drink Water" , completed: true},
+    {id:2 , name:"Exercise" , completed: false},
+    {id:3 , name:"Read Book" , completed: true},
+  ]);
 
+  const toggleDarkmode = () => {
+    setDarkMode(!darkMode);
+  };
+  const toggleHabits =(id) =>{
+    setHabits(habits.map(habit => habit.id === id ?{...habit , completed: !habit.completed} : habit));
+  };
+
+  
+
+  return (
+    <div>
+      <Header darkMode={darkMode} toggleDarkMode={toggleDarkmode}/>
+      <div className="main-container">
+        <MissionProgress habits ={habits}/>
+
+        <div className="right-section">
+          <ActiveMissions habits ={habits} toggleHabits={toggleHabits}/>
+
+          <WeeklyProgress habits={habits}/>
+        </div>
+      </div>
+    </div>
+
+
+
+  );
+
+}
 export default App;
