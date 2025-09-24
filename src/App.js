@@ -19,13 +19,19 @@ function App() {
     setHabits(habits.map(habit => habit.id === id ?{...habit , completed: !habit.completed} : habit));
   };
 
+  const completedHabitsCount = habits.filter(habit => habit.completed).length;
+  const progressPercentage = (completedHabitsCount/ habits.length) * 100;
+
   
 
   return (
     <div>
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkmode}/>
       <div className="main-container">
-        <MissionProgress habits ={habits}/>
+        <MissionProgress habits ={habits}
+        progressPercentage={progressPercentage}
+        completedHabitsCount={completedHabitsCount}
+        />
 
         <div className="right-section">
           <ActiveMissions habits ={habits} toggleHabits={toggleHabits}/>
