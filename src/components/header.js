@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = ({ darkMode, toggleDarkMode }) => {
+const header = ({ darkMode, toggleDarkMode }) => {
   return (
     <header>
       <h1>Habit Tracker</h1>
@@ -11,4 +11,4 @@ const Header = ({ darkMode, toggleDarkMode }) => {
   );
 };
 
-export default Header;
+export default header;

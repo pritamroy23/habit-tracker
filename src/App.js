@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
+import Header from './components/header';
 import MissionProgress from './components/MissionProgress';
-//import ActiveMissions from './components/ActiveMissions';
-//import WeeklyProgress from './components/WeeklyProgress';
+import ActiveMissions from './components/ActiveMissions';
+import WeeklyProgress from './components/WeeklyProgress';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -33,10 +33,10 @@ function App() {
       <div className="main-container">
         <MissionProgress habits={habits} />
         
-        {/*<div className="right-column">
+        <div className="right-column">
           <ActiveMissions habits={habits} toggleHabit={toggleHabit} />
           <WeeklyProgress habits={habits} />
-        </div>*/}
+        </div>
       </div> 
       
       
