@@ -9,7 +9,6 @@ const MissionProgress = (props) => {
 
     // calculating rounded percentage (no decimal)
     const roundedPercentage = Math.round(progressPercentage);
-
     return (
         // creating the main container div
         <div>
@@ -23,11 +22,8 @@ const MissionProgress = (props) => {
             <div>
                 <h3>Active Missions</h3>
                 <p>{habits.length}</p>
-            </div>
-            
-
+            </div>      
         </div>
-
     );
 };
 //exporting the component to be used in other files
