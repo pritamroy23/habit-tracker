@@ -23,8 +23,8 @@ const ActiveMissions = ({ habits, toggleHabit, addNewHabit, deleteHabit, darkMod
                         key={habit.id} 
                         className={`p-4 rounded-lg border-2 transition-all duration-300 ${
                             habit.completed 
-                                ? (darkMode ? 'bg-green-900 border-green-700' : 'bg-green-50 border-green-200')
-                                : (darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-50 border-gray-200')
+                                ? (darkMode ? 'bg-gray-700 border-green-600' : 'bg-gray-50 border-green-200')
+                                : (darkMode ? 'bg-gray-700 border-green-600' : 'bg-gray-50 border-green-200')
                         } ${darkMode ? 'text-white' : 'text-gray-900'}`}
                     >
                         
@@ -46,8 +46,8 @@ const ActiveMissions = ({ habits, toggleHabit, addNewHabit, deleteHabit, darkMod
                                     onClick={() => deleteHabit(habit.id)}
                                     className={`p-1 rounded transition-colors duration-200 ${
                                         darkMode 
-                                            ? 'text-red-400 hover:text-red-300 hover:bg-red-900' 
-                                            : 'text-red-500 hover:text-red-700 hover:bg-red-100'
+                                            ? 'text-gray-400 hover:text-gray-300 hover:bg-gray-900' 
+                                            : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                                     }`}
                                     title="Delete habit"
                                 >
@@ -69,7 +69,7 @@ const ActiveMissions = ({ habits, toggleHabit, addNewHabit, deleteHabit, darkMod
                             onClick={() => toggleHabit(habit.id)}
                             className={`w-full py-2 px-4 rounded-lg font-semibold transition-all duration-300 ${
                                 habit.completed 
-                                    ? 'bg-red-500 hover:bg-red-600 text-white' 
+                                    ? 'bg-green-500 hover:bg-green-600 text-white' 
                                     : 'bg-blue-500 hover:bg-blue-600 text-white'
                             }`}
                         >
