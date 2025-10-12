@@ -1,11 +1,17 @@
 import React from 'react';
 
-const ActiveMissions = ({ habits, toggleHabit, addNewHabit, deleteHabit }) => {
+const ActiveMissions = ({ habits, toggleHabit, addNewHabit, deleteHabit, darkMode }) => {
     return (
-        <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+        <div className={`p-6 rounded-xl shadow-lg border transition-all duration-300 ${
+            darkMode 
+                ? 'bg-gray-800 border-gray-700 text-white' 
+                : 'bg-white border-gray-200 text-gray-900'
+        }`}>
             
             {/* Section Header */}
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+            <h2 className={`text-2xl font-bold mb-6 flex items-center ${
+                darkMode ? 'text-white' : 'text-gray-800'
+            }`}>
                 <span className="mr-3">🚀</span>
                 Active Missions
             </h2>
@@ -17,28 +23,32 @@ const ActiveMissions = ({ habits, toggleHabit, addNewHabit, deleteHabit }) => {
                         key={habit.id} 
                         className={`p-4 rounded-lg border-2 transition-all duration-300 ${
                             habit.completed 
-                                ? 'bg-green-50 border-green-200 shadow-sm' 
-                                : 'bg-gray-50 border-gray-200'
-                        }`}
+                                ? (darkMode ? 'bg-green-900 border-green-700' : 'bg-green-50 border-green-200')
+                                : (darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-50 border-gray-200')
+                        } ${darkMode ? 'text-white' : 'text-gray-900'}`}
                     >
                         
                         {/* Habit Header with Delete Button */}
                         <div className="flex justify-between items-center mb-2">
-                            <h3 className="font-semibold text-gray-800 text-lg">
+                            <h3 className="font-semibold text-lg">
                                 {habit.name}
                             </h3>
                             <div className="flex items-center gap-2">
                                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                                     habit.completed 
-                                        ? 'bg-green-100 text-green-800' 
-                                        : 'bg-yellow-100 text-yellow-800'
+                                        ? (darkMode ? 'bg-green-700 text-green-100' : 'bg-green-100 text-green-800')
+                                        : (darkMode ? 'bg-yellow-700 text-yellow-100' : 'bg-yellow-100 text-yellow-800')
                                 }`}>
                                     {habit.completed ? '✅ Complete!' : '⏳ Incomplete'}
                                 </span>
                                 {/* DELETE BUTTON */}
                                 <button 
                                     onClick={() => deleteHabit(habit.id)}
-                                    className="p-1 text-red-500 hover:text-red-700 hover:bg-red-100 rounded transition-colors duration-200"
+                                    className={`p-1 rounded transition-colors duration-200 ${
+                                        darkMode 
+                                            ? 'text-red-400 hover:text-red-300 hover:bg-red-900' 
+                                            : 'text-red-500 hover:text-red-700 hover:bg-red-100'
+                                    }`}
                                     title="Delete habit"
                                 >
                                     🗑️
@@ -47,7 +57,9 @@ const ActiveMissions = ({ habits, toggleHabit, addNewHabit, deleteHabit }) => {
                         </div>
                         
                         {/* Streak Counter */}
-                        <div className="flex items-center text-sm text-gray-600 mb-3">
+                        <div className={`flex items-center text-sm mb-3 ${
+                            darkMode ? 'text-gray-300' : 'text-gray-600'
+                        }`}>
                             <span className="mr-1">🔥</span>
                             <span>{habit.streak} day streak</span>
                         </div>
@@ -76,7 +88,11 @@ const ActiveMissions = ({ habits, toggleHabit, addNewHabit, deleteHabit }) => {
                         addNewHabit(newHabitName);
                     }
                 }}
-                className="w-full py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 shadow-md flex items-center justify-center"
+                className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 shadow-md flex items-center justify-center ${
+                    darkMode 
+                        ? 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white' 
+                        : 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white'
+                }`}
             >
                 <span className="mr-2">✨</span>
                 Launch New Mission

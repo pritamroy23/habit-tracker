@@ -57,11 +57,12 @@ const addNewHabit = (habitName) => {
             habits={habits} 
             progressPercentage={progressPercentage}
             completedHabitsCount={completedHabitsCount}
+            darkMode={darkMode}
           />
           
           <div className="space-y-8">
-            <ActiveMissions habits={habits} toggleHabit={toggleHabit} addNewHabit={addNewHabit} deleteHabit={deleteHabit}/>
-            <WeeklyProgress habits={habits} />
+            <ActiveMissions habits={habits} toggleHabit={toggleHabit} addNewHabit={addNewHabit} deleteHabit={deleteHabit} darkMode={darkMode}/>
+            <WeeklyProgress habits={habits} darkMode={darkMode} />
           </div>
         </div>
       </div>
