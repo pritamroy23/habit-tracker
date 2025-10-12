@@ -1,17 +1,17 @@
 import React from 'react';
 
-// creating the MissionProgress component
+
 const MissionProgress = (props) => {
-    // extracting the data we need from props
+   
     const habits = props.habits;
     const completedHabitsCount = props.completedHabitsCount;
     const progressPercentage = props.progressPercentage;
 
-    // calculating rounded percentage (no decimal)
+    // calculating rounded percentage 
     const roundedPercentage = Math.round(progressPercentage);
     
     return (
-        // Main container with styling
+        // Main container 
         <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
             
            
@@ -38,7 +38,7 @@ const MissionProgress = (props) => {
                 
             </div>
 
-            {/* Progress Bar (Optional - makes it visual) */}
+            {/* Progress Bar */}
             <div className="mt-4">
                 <div className="flex justify-between text-sm text-gray-600 mb-2">
                     <span>Progress</span>
@@ -55,5 +55,5 @@ const MissionProgress = (props) => {
         </div>
     );
 };
-//exporting the component to be used in other files
+
 export default MissionProgress;

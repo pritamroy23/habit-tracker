@@ -1,9 +1,6 @@
 import React from 'react';
 
-const ActiveMissions = (props) => {
-    const habits = props.habits;
-    const toggleHabit = props.toggleHabit;
-
+const ActiveMissions = ({ habits, toggleHabit, addNewHabit, deleteHabit }) => {
     return (
         <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
             
@@ -25,18 +22,28 @@ const ActiveMissions = (props) => {
                         }`}
                     >
                         
-                        {/* Habit Header */}
+                        {/* Habit Header with Delete Button */}
                         <div className="flex justify-between items-center mb-2">
                             <h3 className="font-semibold text-gray-800 text-lg">
                                 {habit.name}
                             </h3>
-                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                                habit.completed 
-                                    ? 'bg-green-100 text-green-800' 
-                                    : 'bg-yellow-100 text-yellow-800'
-                            }`}>
-                                {habit.completed ? '✅ Complete!' : '⏳ Incomplete'}
-                            </span>
+                            <div className="flex items-center gap-2">
+                                <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                                    habit.completed 
+                                        ? 'bg-green-100 text-green-800' 
+                                        : 'bg-yellow-100 text-yellow-800'
+                                }`}>
+                                    {habit.completed ? '✅ Complete!' : '⏳ Incomplete'}
+                                </span>
+                                {/* DELETE BUTTON */}
+                                <button 
+                                    onClick={() => deleteHabit(habit.id)}
+                                    className="p-1 text-red-500 hover:text-red-700 hover:bg-red-100 rounded transition-colors duration-200"
+                                    title="Delete habit"
+                                >
+                                    🗑️
+                                </button>
+                            </div>
                         </div>
                         
                         {/* Streak Counter */}
@@ -62,7 +69,15 @@ const ActiveMissions = (props) => {
             </div>
             
             {/* Add New Mission Button */}
-            <button className="w-full py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 shadow-md flex items-center justify-center">
+            <button 
+                onClick={() => {
+                    const newHabitName = prompt("What new habit do you want to track?");
+                    if (newHabitName && newHabitName.trim() !== '') {
+                        addNewHabit(newHabitName);
+                    }
+                }}
+                className="w-full py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 shadow-md flex items-center justify-center"
+            >
                 <span className="mr-2">✨</span>
                 Launch New Mission
             </button>
