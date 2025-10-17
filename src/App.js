@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from './components/header';  
+import Header from './components/Header';  
 import MissionProgress from './components/MissionProgress';
 import ActiveMissions from './components/ActiveMissions';
 import WeeklyProgress from './components/WeeklyProgress';
