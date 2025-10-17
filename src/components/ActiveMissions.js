@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { MdDelete } from "react-icons/md";
 const ActiveMissions = ({ habits, toggleHabit, addNewHabit, deleteHabit, darkMode }) => {
     return (
         <div className={`p-6 rounded-xl shadow-lg border transition-all duration-300 ${
@@ -51,7 +51,7 @@ const ActiveMissions = ({ habits, toggleHabit, addNewHabit, deleteHabit, darkMod
                                     }`}
                                     title="Delete habit"
                                 >
-                                    🗑️
+                                    <MdDelete />
                                 </button>
                             </div>
                         </div>

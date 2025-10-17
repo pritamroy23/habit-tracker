@@ -1,4 +1,6 @@
 import React from 'react';
+import { IoSunnySharp } from "react-icons/io5";
+import { IoMoonSharp } from "react-icons/io5";
 
 const Header = ({ darkMode, toggleDarkMode }) => {
   return (
@@ -14,13 +16,13 @@ const Header = ({ darkMode, toggleDarkMode }) => {
       </h1>
       <button 
         onClick={toggleDarkMode}
-        className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
+        className={`p-3 rounded-full transition-all duration-300 flex items-center justify-center ${
           darkMode 
-            ? 'bg-yellow-400 text-gray-900 hover:bg-yellow-500' 
+            ? 'bg-gray-400 text-gray-900 hover:bg-gray-500' 
             : 'bg-gray-800 text-white hover:bg-gray-700'
         }`}
       >
-        {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+        {darkMode ? <IoSunnySharp size={20} /> : <IoMoonSharp size={20} />}
       </button>
     </header>
   );
