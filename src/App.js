@@ -9,8 +9,8 @@ import WeeklyProgress from './components/WeeklyProgress';
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [habits, setHabits] = useState([
-    { id: 1, name: 'Reading', completed: true, streak: 1 },
-    { id: 2, name: 'Running', completed: true, streak: 1 }
+    { id: 1, name: 'habit1', completed: true, streak: 1 },
+    { id: 2, name: 'habit2', completed: true, streak: 1 }
   ]);
 
   const deleteHabit = (id) => {
